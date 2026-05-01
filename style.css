@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fefcf8;
+    color: #1e2a36;
+    line-height: 1.5;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+nav {
+    background: rgba(255, 255, 245, 0.96);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 16px 0;
+}
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #2b5e6b, #b56576);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.nav-links {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #2c3e44;
+    transition: 0.2s;
+    font-size: 1rem;
+}
+.nav-links a:hover, .nav-links a.active {
+    color: #b56576;
+    border-bottom: 2px solid #b56576;
+}
+.lang-switch {
+    display: flex;
+    gap: 8px;
+    background: #f0f2f0;
+    padding: 6px 12px;
+    border-radius: 60px;
+}
+.lang-btn {
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 40px;
+    transition: all 0.2s;
+    color: #4a5568;
+}
+.lang-btn.active {
+    background: #ffffff;
+    color: #b56576;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.page {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+.page.active-page {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 40px 0 48px 0;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+}
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 56px;
+    height: 4px;
+    background: #b56576;
+    border-radius: 4px;
+}
+.sub-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 2rem 0 1.2rem 0;
+    color: #2c5a6e;
+}
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+.resume-left {
+    text-align: center;
+}
+.avatar {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+    border: 4px solid white;
+    margin-bottom: 20px;
+}
+.name-cn {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.name-en {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: 16px;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 24px 0;
+}
+.social-links a {
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 1.4rem;
+    transition: 0.2s;
+}
+.social-links a:hover {
+    color: #b56576;
+    transform: translateY(-3px);
+}
+.resume-right {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+.info-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #2c3e44;
+}
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+.skill-tag, .skill-tags span {
+    background: #eef2f5;
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+.exp-item, .edu-item {
+    margin-bottom: 18px;
+}
+.exp-title {
+    font-weight: 700;
+}
+.exp-date {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+    margin-bottom: 20px;
+}
+.portfolio-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+.portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+}
+.portfolio-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #e2e8f0;
+}
+.portfolio-info {
+    padding: 18px;
+}
+.portfolio-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+}
+.portfolio-info p {
+    color: #5a6874;
+    font-size: 0.85rem;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
+}
+.gallery-item {
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: #edeae4;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+.gallery-item img:hover {
+    transform: scale(1.02);
+}
+.hero {
+    text-align: center;
+    padding: 80px 0 40px;
+}
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #5a6874;
+}
+.btn-explore {
+    display: inline-block;
+    background: #b56576;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 32px;
+    transition: 0.2s;
+}
+.btn-explore:hover {
+    background: #9e4a5e;
+    transform: scale(1.02);
+}
+footer {
+    text-align: center;
+    padding: 32px 0;
+    color: #7f8c8d;
+    font-size: 0.8rem;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+    .nav-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* 首页新增样式 */
+.gradient-text {
+    background: linear-gradient(135deg, #2b5e6b, #b56576);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.home-intro {
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+.intro-card {
+    background: rgba(255,255,245,0.6);
+    backdrop-filter: blur(4px);
+    padding: 32px 28px;
+    border-radius: 32px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #f0ede8;
+}
+.intro-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: #3a4a5a;
+}
+.intro-card p:last-child {
+    margin-bottom: 0;
+}
+@media (max-width: 768px) {
+    .intro-card p {
+        font-size: 1rem;
+    }
+}
