@@ -17,9 +17,10 @@ const translations = {
         exp2_desc: "電化學阻抗譜(EIS)分析、電路測試設備操作、生物材料導電性研究。",
         project_title: "📌 專案經驗",
         edu_title: "🎓 教育背景",
-        edu_university: "香港大學 生物醫學工程學士 (2022-2026) | CGPA 3.00/4.30",
-        edu_courses: "核心課程：醫學影像、生物力學、生醫訊號、生物材料、統計分析",
-        edu_secondary: "福建中學（觀塘） (2016-2022) | 修讀物理、生物、化學、數學",
+        edu_university_text: "香港大學 生物醫學工程學士 (2022-2026) | CGPA 3.00/4.30",
+        edu_courses_text: "核心課程：醫學影像、生物力學、生醫訊號、生物材料、統計分析",
+        edu_secondary_name: "福建中學（觀塘） (2016-2022)",
+        edu_secondary_courses: "修讀物理、生物、化學、數學",
         hobby_title: "❤️ 愛好",
         portfolio_title: "作品集錦",
         photoessay_title: "📸 照片散文 —《登岳陽樓記》影像紀行",
@@ -42,14 +43,12 @@ const translations = {
         proj5_desc: "量測ECG、PPG、PCG、EMG等訊號，使用MATLAB進行傅立葉轉換與不同取樣率比較 (2024.02-03)。",
         proj6_title: "Grand Challenge：深度學習於腦血管疾病之應用",
         proj6_desc: "研究深度學習/CNN改善醫學影像分析 (CT/MRI)，探討靈敏度、特異性與臨床可行性 (2023.09-12)。",
-        // 技能標籤
         skill_python: "Python / MATLAB / R",
         skill_solidworks: "SolidWorks / KiCad / Blender",
         skill_arduino: "Arduino / 電路測試",
         skill_matlab: "MATLAB 生醫訊號處理",
         skill_3dprint: "3D 列印 (SLA/FDM)",
         skill_photo: "攝影 / 後製",
-        // 愛好標籤
         hobby_basketball: "🏀 籃球",
         hobby_tennis: "🎾 網球",
         hobby_gaming: "🎮 遊戲",
@@ -77,9 +76,10 @@ const translations = {
         exp2_desc: "电化学阻抗谱(EIS)分析、电路测试设备操作、生物材料导电性研究。",
         project_title: "📌 专案经验",
         edu_title: "🎓 教育背景",
-        edu_university: "香港大学 生物医学工程学士 (2022-2026) | CGPA 3.00/4.30",
-        edu_courses: "核心课程：医学影像、生物力学、生医信号、生物材料、统计分析",
-        edu_secondary: "福建中学（观塘） (2016-2022) | 修读物理、生物、化学、数学",
+        edu_university_text: "香港大学 生物医学工程学士 (2022-2026) | CGPA 3.00/4.30",
+        edu_courses_text: "核心课程：医学影像、生物力学、生医信号、生物材料、统计分析",
+        edu_secondary_name: "福建中学（观塘） (2016-2022)",
+        edu_secondary_courses: "修读物理、生物、化学、数学",
         hobby_title: "❤️ 爱好",
         portfolio_title: "作品集锦",
         photoessay_title: "📸 照片散文 —《登岳阳楼记》影像纪行",
@@ -135,9 +135,10 @@ const translations = {
         exp2_desc: "EIS analysis, circuit testing, biomaterial conductivity research.",
         project_title: "📌 Project Experience",
         edu_title: "🎓 Education",
-        edu_university: "The University of Hong Kong, BEng Biomedical Engineering (2022-2026) | CGPA 3.00/4.30",
-        edu_courses: "Core courses: Medical Imaging, Biomechanics, Biomedical Signals, Biomaterials, Statistical Analysis",
-        edu_secondary: "Fukien Secondary School (Kwun Tong) (2016-2022) | Studied Physics, Biology, Chemistry, Mathematics",
+        edu_university_text: "The University of Hong Kong, BEng Biomedical Engineering (2022-2026) | CGPA 3.00/4.30",
+        edu_courses_text: "Core courses: Medical Imaging, Biomechanics, Biomedical Signals, Biomaterials, Statistical Analysis",
+        edu_secondary_name: "Fukien Secondary School (Kwun Tong) (2016-2022)",
+        edu_secondary_courses: "Studied Physics, Biology, Chemistry, Mathematics",
         hobby_title: "❤️ Hobbies",
         portfolio_title: "Portfolio",
         photoessay_title: "📸 Photo Essay — Ascending Yueyang Tower",
@@ -239,14 +240,24 @@ function renderHobbies() {
     container.innerHTML = hobbies.map(h => `<span>${h}</span>`).join('');
 }
 
-// 渲染教育背景
+// 渲染教育背景（核心课程使用 edu-subtext）
 function renderEducation() {
     const container = document.getElementById("education-list");
     if (!container) return;
+    const t = translations[currentLang];
     const html = `
-        <div class="edu-item">${translations[currentLang].edu_university}</div>
-        <div class="edu-item">${translations[currentLang].edu_courses}</div>
-        <div class="edu-item">${translations[currentLang].edu_secondary}</div>
+        <div class="edu-item">
+            <img class="edu-logo" src="hkubme.png" alt="HKU logo" onerror="this.style.display='none'">
+            <div class="edu-text">${t.edu_university_text}</div>
+        </div>
+        <div class="edu-item courses-item">
+            <div class="edu-subtext">${t.edu_courses_text}</div>
+        </div>
+        <div class="edu-item">
+            <img class="edu-logo" src="fss.png" alt="Fukien Secondary School logo" onerror="this.style.display='none'">
+            <div class="edu-text">${t.edu_secondary_name}</div>
+            <div class="edu-subtext">${t.edu_secondary_courses}</div>
+        </div>
     `;
     container.innerHTML = html;
 }

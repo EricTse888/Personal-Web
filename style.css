@@ -161,6 +161,20 @@ nav {
     flex-direction: column;
     gap: 28px;
 }
+/* 关键样式：为每个 .info-card 添加底部边距，并在非最后一个之间添加分隔横线 */
+.resume-right .info-card {
+    position: relative;
+    padding-bottom: 28px;
+}
+.resume-right .info-card:not(:last-child) {
+    border-bottom: 1px solid #e9ecef; /* 柔和的浅灰横线 */
+    margin-bottom: 0;
+}
+/* 调整最后一项的 padding-bottom 为 0 */
+.resume-right .info-card:last-child {
+    padding-bottom: 0;
+}
+
 .info-card h3 {
     font-size: 1.4rem;
     font-weight: 600;
@@ -190,6 +204,38 @@ nav {
     font-size: 0.8rem;
     color: #6c757d;
 }
+/* 教育背景样式 */
+.edu-item {
+    margin-bottom: 24px;
+}
+.edu-item:last-child {
+    margin-bottom: 0;
+}
+.edu-logo {
+    display: block;
+    height: 80px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+.edu-text {
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+.edu-subtext {
+    font-size: 0.9rem;
+    color: #5a6874;
+    margin-top: 4px;
+}
+.courses-item .edu-subtext {
+    margin-top: 0;
+}
+/* 移除之前的空行 */
+.edu-spacer {
+    display: none;
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -294,6 +340,13 @@ footer {
     }
     .hero h1 {
         font-size: 2.2rem;
+    }
+    .edu-logo {
+        height: 65px;
+        max-width: 160px;
+    }
+    .resume-right .info-card {
+        padding-bottom: 24px;
     }
 }
 
